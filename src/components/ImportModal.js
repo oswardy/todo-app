@@ -49,11 +49,20 @@ export default function ImportModal({ onImport, onClose }) {
         </>
       }>
       <div className="flex flex-col gap-4 text-sm">
-        <p className="text-gray-500">
-          Accepted files: .csv, .xlsx, .xls. Columns: Title (required), Due Date
-          (YYYY-MM-DD), Category (Work, Personal or Urgent), Status (Completed or
-          Incomplete).
-        </p>
+        <div>
+          <p className="mb-1 text-gray-600">
+            Your file needs a header row with these columns:
+          </p>
+          <ul className="list-disc pl-5 text-gray-500">
+            <li><b>Title</b> (required)</li>
+            <li><b>Due Date</b> (YYYY-MM-DD)</li>
+            <li><b>Category</b> (Work, Personal or Urgent)</li>
+            <li><b>Status</b> (Completed or Incomplete)</li>
+          </ul>
+          <p className="text-gray-600 mt-2">
+            Accepted files: .csv, .xlsx, .xls. 
+          </p>
+        </div>
 
         <input
           type="file"
@@ -63,6 +72,7 @@ export default function ImportModal({ onImport, onClose }) {
           file:cursor-pointer file:rounded-lg file:border 
           file:border-gray-300 file:bg-white file:px-3 file:py-1.5 hover:file:bg-gray-50"
         />
+        
 
         {error && <p className="text-red-600">{error}</p>}
 
